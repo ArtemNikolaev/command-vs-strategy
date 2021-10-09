@@ -2,9 +2,9 @@ const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
 const fieldStatuses = {
-  empty: 'rgb(100, 0, 0)',
-  visited: 'rgb(0, 100, 0)',
-  current: 'rgb(0, 0, 100)',
+  empty: '#C0513F',
+  visited: '#6DC03F',
+  current: '#923FC0',
 }
 
 const history = {
@@ -102,14 +102,15 @@ function render() {
   const blockWidth = width / human.history.field[0].length;
   const blockHeight = height / human.history.field.length;
 
-  ctx.clearRect(0, 0, width, height);
+  ctx.fillStyle = '#3FAEC0';
+  ctx.fillRect(0, 0, width, height);
 
   for (let y = 0; y < human.history.field.length; y++) {
     for (let x = 0; x < human.history.field[y].length; x++) {
       const xStart = x * blockWidth;
       const yStart = y * blockHeight;
       ctx.fillStyle = fieldStatuses[human.history.field[y][x]];
-      ctx.fillRect(xStart, yStart, blockWidth, blockHeight);
+      ctx.fillRect(xStart + 2.5, yStart+ 1, blockWidth - 5, blockHeight - 2);
     }
   }
 }
