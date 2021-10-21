@@ -36,10 +36,6 @@ export function render(history) {
   }
 }
 
-render[state.settings] = function() {
-  console.log('rendering settings');
-}
-
 render[state.store] = function() {
   console.log('rendering store');
 }

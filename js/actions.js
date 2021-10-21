@@ -94,6 +94,5 @@ export class Actions {
     h.x = x;
     h.y = y;
     h.field[x][y] = nextFieldMapping[h.field[x][y]];
-    console.log(h.field[x][y])
   }
 }

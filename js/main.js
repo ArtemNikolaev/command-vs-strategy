@@ -1,5 +1,6 @@
 import { Actions } from './actions';
 import { render } from './canvas';
+import { Settings } from './settings';
 
 const actions = new Actions();
 
@@ -12,19 +13,25 @@ const mapping = {
   KeyW: 'moveUp',
   KeyS: 'moveDown',
   Backspace: 'redo',
-}
+};
+const settings = new Settings(mapping);
 
 window.addEventListener('keydown', Array.prototype.push.bind(pressedQueue)  );
 
 function lifeCycle() {
   while (pressedQueue.length) {
-    const event = pressedQueue.shift();
+    const code = pressedQueue.shift().code;
 
-    if (mapping[event.code]) {
-      actions[mapping[event.code]]();
+    console.log(code);
+
+    if (mapping[code]) {
+      actions[mapping[code]]();
     }
   }
   render(actions.history);
+
+  settings.check(actions.history.state);
+
   requestAnimationFrame(lifeCycle);
 }
 
