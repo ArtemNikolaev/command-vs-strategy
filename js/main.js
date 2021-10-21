@@ -3,43 +3,15 @@ import { render } from './canvas';
 
 const actions = new Actions();
 
-function isSpecialKeyPressed(event) {
-  return [
-    event.ctrlKey,
-    event.shiftKey,
-    event.altKey,
-    event.metaKey,
-  ].some(Boolean);
-}
-
 const pressedQueue = [];
 
 const mapping = {
-  KeyB: (ev) => {
-    if (!ev.ctrlKey) return;
-
-    actions.settings();
-  },
-  Space: (ev) => {
-    if (isSpecialKeyPressed(ev)) return;
-
-    actions.interact();
-  },
-  KeyA: () => {
-    return actions.moveLeft();
-  },
-  KeyD: () => {
-    return actions.moveRight();
-  },
-  KeyW: () => {
-    return actions.moveUp();
-  },
-  KeyS: () => {
-    return actions.moveDown();
-  },
-  Backspace: () => {
-    return actions.redo();
-  }
+  KeyB: 'settings',
+  KeyA: 'moveLeft',
+  KeyD: 'moveRight',
+  KeyW: 'moveUp',
+  KeyS: 'moveDown',
+  Backspace: 'redo',
 }
 
 window.addEventListener('keydown', Array.prototype.push.bind(pressedQueue)  );
@@ -49,7 +21,7 @@ function lifeCycle() {
     const event = pressedQueue.shift();
 
     if (mapping[event.code]) {
-      mapping[event.code](event);
+      actions[mapping[event.code]]();
     }
   }
   render(actions.history);

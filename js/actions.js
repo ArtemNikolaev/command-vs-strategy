@@ -48,9 +48,16 @@ export class Actions {
   }
 
   // open
+  settings() {
+    const h = this.history;
+
+    if (h.state !== state.settings) {
+      h.state = state.settings;
+    } else h.state = state.openWorld;
+  }
+
   interact() {
     const h = this.history;
-    console.log(h.field[h.x][h.y])
 
     if (h.field[h.x][h.y] !== 'currentStore') return;
 
@@ -59,8 +66,6 @@ export class Actions {
     if (h.state !== state.store) {
       h.state = state.store;
     } else h.state = state.openWorld;
-
-    console.log(h.state)
   }
 
   // moving
