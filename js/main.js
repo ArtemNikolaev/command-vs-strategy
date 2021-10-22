@@ -12,6 +12,7 @@ const mapping = {
   KeyD: 'moveRight',
   KeyW: 'moveUp',
   KeyS: 'moveDown',
+  KeyE: 'changeWeapon',
   Backspace: 'redo',
 };
 const settings = new Settings(mapping);

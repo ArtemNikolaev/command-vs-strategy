@@ -1,3 +1,5 @@
+import { sword, mace } from './weapon';
+
 export const state = {
   openWorld: 'OpenWorld',
   settings: 'Settings',
@@ -20,6 +22,10 @@ export class Actions {
     this.history = {
       state: state.openWorld,
       x, y,
+      weapon: Object.create(sword),
+      inventory: [
+        Object.create(mace),
+      ],
       moveNumber: 0,
       field: [
         ['current', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
@@ -66,6 +72,16 @@ export class Actions {
     if (h.state !== state.store) {
       h.state = state.store;
     } else h.state = state.openWorld;
+  }
+
+  // weapon
+  changeWeapon() {
+    this.step();
+    const h = this.history;
+
+    const weapon = h.inventory.shift();
+    h.inventory.push(h.weapon);
+    h.weapon = weapon;
   }
 
   // moving

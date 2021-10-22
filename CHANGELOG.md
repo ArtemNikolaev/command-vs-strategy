@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2021-10-22
+### Added
+- realize strategy through weapon change
+
 ## [1.1.0] - 2021-10-21
 ### Added
 - settings functionality
@@ -33,7 +37,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - changelog
 - old app version
 
-[Unreleased]: https://github.com/ArtemNikolaev/command-vs-strategy/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/ArtemNikolaev/command-vs-strategy/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/ArtemNikolaev/command-vs-strategy/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/ArtemNikolaev/command-vs-strategy/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/ArtemNikolaev/command-vs-strategy/compare/v0.2.0...v1.0.0
 [0.2.0]: https://github.com/ArtemNikolaev/command-vs-strategy/compare/v0.1.0...v0.2.0

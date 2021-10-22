@@ -28,6 +28,10 @@ export function render(history) {
       const yStart = y * blockHeight;
       ctx.fillStyle = fieldStatuses[history.field[y][x]];
       ctx.fillRect(xStart + 5, yStart+ 5, blockWidth - 10, blockHeight - 10);
+
+      if (history.field[y][x] === 'current') {
+        ctx.drawImage(history.weapon.img, xStart + 5, yStart+ 5, 80, 80);
+      }
     }
   }
 
